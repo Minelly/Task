@@ -9,8 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <script type="text/javascript" nonce="12dfeaa7fc57447eac0d15f7b71" src="//local.adguard.org?ts=1579862092935&amp;type=content-script&amp;dmn=fiddle.jshell.net&amp;css=1&amp;js=1&amp;gcss=1&amp;rel=1&amp;rji=1"></script>
-<script type="text/javascript" nonce="12dfeaa7fc57447eac0d15f7b71" src="//local.adguard.org?ts=1579862092935&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;type=user-script"></script><script
+  <script type="text/javascript" nonce="12dfeaa7fc57447eac0d15f7b71" src="//local.adguard.org?ts=1579852977971&amp;type=content-script&amp;dmn=fiddle.jshell.net&amp;css=1&amp;js=1&amp;gcss=1&amp;rel=1&amp;rji=1"></script>
+<script type="text/javascript" nonce="12dfeaa7fc57447eac0d15f7b71" src="//local.adguard.org?ts=1579852977971&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;type=user-script"></script><script
     type="text/javascript"
     src="/js/lib/dummy.js"
 
@@ -93,8 +93,8 @@ var app = new Vue({
   // computed properties
   // http://vuejs.org/guide/computed.html
   computed: {
-    filteredTodos: function () {
-      return filters[this.visibility](this.todos)
+    filteredAndReversedTodos: function () {
+      return filters[this.visibility](this.todos.slice().reverse())
     },
     remaining: function () {
       return filters.active(this.todos).length
@@ -208,7 +208,7 @@ app.$mount('.todoapp')
   <section class="main" v-show="todos.length" v-cloak>
     <input class="toggle-all" type="checkbox" v-model="allDone">
     <ul class="todo-list">
-      <li v-for="todo in filteredTodos"
+      <li v-for="todo in filteredAndReversedTodos"
         class="todo"
         :key="todo.id"
         :class="{ completed: todo.completed, editing: todo == editedTodo }">
@@ -252,7 +252,7 @@ app.$mount('.todoapp')
     if (window.parent && window.parent.parent){
       window.parent.parent.postMessage(["resultsFrame", {
         height: document.body.getBoundingClientRect().height,
-        slug: "aump8a25"
+        slug: "z0k59vdf"
       }], "*")
     }
 
